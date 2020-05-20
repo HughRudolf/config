@@ -1,0 +1,37 @@
+server:
+  port: ${port:8080}
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud
+    username: root
+    password: hugh
+  application:
+    #应用名称
+    name: user-service
+  #配置Jackson
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss  #日期格式器
+    time-zone: GMT+8
+
+mybatis:
+  configuration:
+#    驼峰映射
+    map-underscore-to-camel-case: true
+#    别名扫描
+  type-aliases-package: cn.itcast.user.pojo
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka,http://localhost:8762/eureka
+  instance:
+    ip-address: 127.0.0.1 #ip地址
+    prefer-ip-address: true #倾向使用ip
+    lease-renewal-interval-in-seconds: 30 #服务续约时间间隔
+    lease-expiration-duration-in-seconds: 90  #服务失效时间
+
+logging:
+  level:
+    cn.itcast: debug
