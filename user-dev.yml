@@ -36,3 +36,4 @@ logging:
   level:
     cn.itcast: debug
     #测试修改是否同步
+    root: info
